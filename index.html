@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Account Deletion - [Your App Name]</title>
+  <title>Account Deletion - Profigram</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -27,34 +27,111 @@
       background: #eef;
       border-left: 4px solid #3366cc;
     }
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 120px;
+    }
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .tab {
+      padding: 8px 16px;
+      cursor: pointer;
+      background-color: #ddd;
+      border-radius: 5px;
+    }
+    .tab.active {
+      background-color: #3366cc;
+      color: white;
+    }
+    .content {
+      display: none;
+    }
+    .content.active {
+      display: block;
+    }
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <h1>Account Deletion - [Your App Name]</h1>
-  <p>
-    At <strong>[Your App Name]</strong>, we respect your privacy and give you full control over your data.
-    You can delete your account directly from the mobile application at any time.
-  </p>
+  <img src="logo.png" alt="Profigram Logo" class="logo">
 
-  <h2>How to Delete Your Account</h2>
-  <ol>
-    <li>Open the <strong>[Your App Name]</strong> app.</li>
-    <li>Go to <strong>Profile → Settings → Delete Account</strong>.</li>
-    <li>Confirm deletion by entering your verification code.</li>
-  </ol>
-
-  <h2>What Happens After Deletion</h2>
-  <ul>
-    <li>All personal data (phone number, name, profile information, chat history, and orders) will be permanently removed from our servers within <strong>30 days</strong>.</li>
-    <li>Some data required for legal, regulatory, or security reasons may be retained for up to <strong>90 days</strong> before being automatically deleted.</li>
-  </ul>
-
-  <h2>Need Help?</h2>
-  <p>
-    If you have any issues deleting your account, please contact us:
-  </p>
-  <div class="contact">
-    📧 Email: <a href="mailto:support@yourapp.com">support@yourapp.com</a>
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('en')">English</div>
+    <div class="tab" onclick="showTab('ru')">Русский</div>
   </div>
+
+  <!-- English content -->
+  <div id="en" class="content active">
+    <h1>Account Deletion - Profigram</h1>
+    <p>
+      At <strong>Profigram</strong>, we respect your privacy and give you full control over your data.
+      You can delete your account directly from the mobile application at any time.
+    </p>
+
+    <h2>How to Delete Your Account</h2>
+    <ol>
+      <li>Open the <strong>Profigram</strong> app.</li>
+      <li>Go to your <strong>Profile</strong>.</li>
+      <li>Scroll down to the very bottom of the screen. You will see a red button with text <span class="highlight">Delete Account</span> and a delete icon.</li>
+      <li>Tap on it and confirm deletion in the dialog that appears.</li>
+    </ol>
+
+    <h2>What Happens After Deletion</h2>
+    <ul>
+      <li>All personal data (phone number, name, profile information, chat history, and orders) will be permanently removed from our servers within <strong>30 days</strong>.</li>
+      <li>Some data required for legal, regulatory, or security reasons may be retained for up to <strong>90 days</strong> before being automatically deleted.</li>
+    </ul>
+
+    <h2>Need Help?</h2>
+    <p>If you have any issues deleting your account, please contact us:</p>
+    <div class="contact">
+      📧 Email: <a href="mailto:adamtechkg@gmail.com">adamtechkg@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Russian content -->
+  <div id="ru" class="content">
+    <h1>Удаление аккаунта - Profigram</h1>
+    <p>
+      В <strong>Profigram</strong> мы уважаем вашу приватность и предоставляем полный контроль над вашими данными.
+      Вы можете удалить аккаунт напрямую из мобильного приложения в любое время.
+    </p>
+
+    <h2>Как удалить аккаунт</h2>
+    <ol>
+      <li>Откройте приложение <strong>Profigram</strong>.</li>
+      <li>Перейдите в ваш <strong>Профиль</strong>.</li>
+      <li>Прокрутите экран до самого низа. Там красным цветом будет кнопка с текстом <span class="highlight">Удалить аккаунт</span> и иконкой удаления.</li>
+      <li>Нажмите на неё и подтвердите удаление аккаунта в появившемся диалоговом окне.</li>
+    </ol>
+
+    <h2>Что происходит после удаления</h2>
+    <ul>
+      <li>Все личные данные (номер телефона, имя, информация профиля, история чатов и заказов) будут навсегда удалены с наших серверов в течение <strong>30 дней</strong>.</li>
+      <li>Некоторые данные, необходимые для юридических, нормативных или безопасностных целей, могут храниться до <strong>90 дней</strong> перед автоматическим удалением.</li>
+    </ul>
+
+    <h2>Нужна помощь?</h2>
+    <p>Если у вас возникли проблемы с удалением аккаунта, свяжитесь с нами:</p>
+    <div class="contact">
+      📧 Email: <a href="mailto:adamtechkg@gmail.com">adamtechkg@gmail.com</a>
+    </div>
+  </div>
+
+  <script>
+    function showTab(lang) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+      document.querySelector('.tab[onclick*="' + lang + '"]').classList.add('active');
+      document.getElementById(lang).classList.add('active');
+    }
+  </script>
 </body>
 </html>
